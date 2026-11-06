@@ -1,0 +1,20 @@
+# Local files to ignore
+/ignore/
+
+# Temporary Blender files
+*.blend1
+
+# Local IDE files
+*.code-workspace
+
+# Molecular-orbital development and generated renders
+.local-deps/
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+/build/
+*.oso
+
+# Generated DFT calculations, shaders, and Blender scenes
+/DFT/results/
