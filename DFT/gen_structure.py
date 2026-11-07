@@ -29,7 +29,7 @@ ATOM_SCALE = 2.
 BOND_RADIUS = .1
 
 def create_scene(job, *, bonds=True, bond_factor=1.2, shader=None, mode="amplitude",
-                 density=2.0, threshold=0.002, padding=4.0, resolution=960, samples=64):
+                 density=1.0, threshold=0.0, padding=4.0, resolution=960, samples=16):
     pairs = infer_bonds(job, bond_factor) if bonds else []
     if mode not in {"amplitude", "probability"}:
         raise ValueError("Mode must be amplitude or probability")
@@ -178,8 +178,8 @@ def create_scene(job, *, bonds=True, bond_factor=1.2, shader=None, mode="amplitu
     scene.world = bpy.data.worlds.new("Molecular background")
     scene.world.use_nodes = True
     background = scene.world.node_tree.nodes.get("Background")
-    background.inputs["Color"].default_value = (0.03, 0.04, 0.06, 1)
-    background.inputs["Strength"].default_value = 0.3
+    background.inputs["Color"].default_value = (0., 0., 0., 1)
+    background.inputs["Strength"].default_value = 0.0
     scene.cycles.samples = samples
     scene.cycles.use_denoising = True
     scene.render.resolution_x = resolution
@@ -198,11 +198,11 @@ def main(argv=None):
     parser.add_argument("--mode", choices=("amplitude", "probability"), default="amplitude")
     parser.add_argument("--no-bonds", action="store_true")
     parser.add_argument("--bond-factor", type=float, default=1.2)
-    parser.add_argument("--density", type=float, default=2.0)
-    parser.add_argument("--threshold", type=float, default=0.002)
+    parser.add_argument("--density", type=float, default=1.0)
+    parser.add_argument("--threshold", type=float, default=0.0)
     parser.add_argument("--padding", type=float, default=4.0, help="Volume boundary padding in angstrom")
     parser.add_argument("--resolution", type=int, default=960, help="Image width; height is half the width")
-    parser.add_argument("--samples", type=int, default=64)
+    parser.add_argument("--samples", type=int, default=16)
     parser.add_argument("--render", action="store_true")
     args = parser.parse_args(argv)
     job = read_input(args.input)

@@ -6,7 +6,7 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
 
 ## Example  
 
-1. Build the structure in Blender:
+1. Build the structure in Blender in windows powershell:
 
    ```powershell
    $blender = "C:\Program Files\Blender Foundation\Blender 4.0\blender.exe"
@@ -21,19 +21,21 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
    python3 DFT/example_C22H14.py --threads 8 --memory-mb 4000
    ```
 
-3. Generate a direct OSL shader from the converged calculation:
+3. Generate a direct OSL shader from the converged calculation (Linux/macOS/WSL):
 
    ```shell
    python3 DFT/gen_shader.py --orbital HOMO --spin alpha
    ```
 
-4. Render the orbital in Blender:
+4. Render the orbital in Blender (powershell):
 
    ```powershell
    & $blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --shader DFT/results/example_C22H14_alpha_homo.osl --output DFT/results/example_C22H14_orbital.blend --render
    ```
 
-Result: The shader allows visualizing the amplitude or the orbital probabilty. The wave-function's phase is encoded in the shader color.
+**Result:**
+The shader allows visualizing the amplitude or alternatively the orbital probabilty. The wave-function's phase is encoded in the shader color.
+![example_C22H14_orbital.png](example_C22H14_orbital.png)
 
 ## Notice
 Covalent radii are used in workflow.py, which are taken from [Cordero et al.](https://doi.org/10.1039/b801115j). The DFT input in example_C22H14.py is adapted from a GAMESS input file generated with Avogadro. The code in this project was mostly generated with ChatpGPT version 6.1 and is based on the previous project Atomic-Orbitals-in-Blender.
