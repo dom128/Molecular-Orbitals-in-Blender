@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """Build a Blender scene from native PySCF or supported GAMESS geometry.
 
-blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --render
+blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --input DFT/example_C22H14.py --render
 Add --shader DFT/results/example_C22H14_alpha_homo.osl to embed a calculated MO volume.
 Creates a new scene; existing scenes and their objects are retained.
 """
@@ -20,7 +20,7 @@ from mathutils import Matrix, Vector
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from DFT.workflow import DEFAULT_INPUT, infer_bonds, read_input
+from DFT.workflow import infer_bonds, read_input
 
 STYLES = {1: (0.14, (0.88, 0.91, 0.96, 1)), 6: (0.22, (0.10, 0.13, 0.18, 1)),
           7: (0.21, (0.08, 0.18, 0.75, 1)), 8: (0.20, (0.65, 0.06, 0.025, 1))}
@@ -192,7 +192,7 @@ def create_scene(job, *, bonds=True, bond_factor=1.2, shader=None, mode="amplitu
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
+    parser.add_argument("--input", type=Path, required=True)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--shader", type=Path)
     parser.add_argument("--mode", choices=("amplitude", "probability"), default="amplitude")

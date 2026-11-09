@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-only
 """Run a native PySCF job or supported GAMESS input with wavefunction exports.
 
-python DFT/run_dft.py --dry-run
-python DFT/run_dft.py --threads 8 --memory-mb 4000
+python DFT/run_dft.py DFT/example_C22H14.py --dry-run
+python DFT/run_dft.py DFT/example_C22H14.py --threads 8 --memory-mb 4000
 PySCF runs on Linux, macOS, or WSL. Blender does not need PySCF installed.
 """
 
@@ -20,12 +20,12 @@ from pyscf.tools import molden
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from DFT.workflow import DEFAULT_INPUT, calculation_settings, read_input
+from DFT.workflow import calculation_settings, read_input
 
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input", type=Path, nargs="?", default=DEFAULT_INPUT)
+    parser.add_argument("input", type=Path)
     parser.add_argument("--output-prefix", type=Path, help="Default: INPUT_DIRECTORY/results/INPUT_STEM")
     parser.add_argument("--basis", help="Explicit PySCF basis name; overrides the input basis")
     parser.add_argument("--xc", help="Explicit PySCF exchange-correlation expression")

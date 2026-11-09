@@ -17,7 +17,6 @@ sys.path.insert(0, str(ROOT))
 # prepend it to a WSL/Linux environment with its own installed dependencies.
 if sys.platform == "win32" and (ROOT / ".local-deps").is_dir():
     sys.path.insert(0, str(ROOT / ".local-deps"))
-from DFT.workflow import DEFAULT_PREFIX
 from molecular_orbitals import load_wavefunction
 from molecular_orbitals.model import BOHR_ANGSTROM
 from molecular_orbitals.osl import generate_osl
@@ -121,7 +120,7 @@ def create_shader(input_path, output=None, orbital="HOMO", spin="alpha", wavefun
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("input", type=Path, nargs="?", default=DEFAULT_PREFIX.with_suffix(".molden"))
+    parser.add_argument("input", type=Path, help="Path to the calculated wavefunction file (required)")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--orbital", default="HOMO", help="HOMO, LUMO, or a one-based orbital number")
     parser.add_argument("--spin", choices=("alpha", "beta"), default="alpha")

@@ -12,8 +12,6 @@ from pathlib import Path
 import re
 
 BOHR_ANGSTROM = 0.529177210544
-DEFAULT_INPUT = Path(__file__).with_name("example_C22H14.py")
-DEFAULT_PREFIX = DEFAULT_INPUT.parent / "results" / DEFAULT_INPUT.stem
 SYMBOLS = ("X H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn "
            "Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce "
            "Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn "

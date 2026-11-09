@@ -10,7 +10,7 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
 
    ```powershell
    $blender = "C:\Program Files\Blender Foundation\Blender 4.0\blender.exe"
-   & $blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --render
+   & $blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --input DFT/example_C22H14.py --render
    ```
 
 2. Calculate the orbitals with PySCF in Linux/macOS/WSL:
@@ -24,13 +24,13 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
 3. Generate a direct OSL shader from the converged calculation (Linux/macOS/WSL):
 
    ```shell
-   python3 DFT/gen_shader.py --orbital HOMO --spin alpha
+   python3 DFT/gen_shader.py DFT/results/example_C22H14.molden --orbital HOMO --spin alpha
    ```
 
 4. Render the orbital in Blender (powershell):
 
    ```powershell
-   & $blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --shader DFT/results/example_C22H14_alpha_homo.osl --output DFT/results/example_C22H14_orbital.blend --render
+   & $blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --input DFT/example_C22H14.py --shader DFT/results/example_C22H14_alpha_homo.osl --output DFT/results/example_C22H14_orbital.blend --render
    ```
 
 **Result:**
