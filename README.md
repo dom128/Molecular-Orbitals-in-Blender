@@ -6,14 +6,14 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
 
 ## Example  
 
-1. Build the structure in Blender in windows powershell:
+1. Build the structure in Blender in _Windows PowerShell_:
 
    ```powershell
    $blender = "C:\Program Files\Blender Foundation\Blender 4.0\blender.exe"
    & $blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --input DFT/example_C22H14.py --render
    ```
 
-2. Calculate the orbitals with PySCF in Linux/macOS/WSL:
+2. Calculate the orbitals with PySCF in _Linux/macOS/WSL_:
 
    ```shell
    python3 -m pip install numpy qc-iodata pyscf
@@ -21,13 +21,13 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
    python3 DFT/example_C22H14.py --threads 8 --memory-mb 4000
    ```
 
-3. Generate a direct OSL shader from the converged calculation (Linux/macOS/WSL):
+3. Generate a direct OSL shader from the converged calculation (_Linux/macOS/WSL_):
 
    ```shell
    python3 DFT/gen_shader.py DFT/results/example_C22H14.molden --orbital HOMO --spin alpha
    ```
 
-4. Render the orbital in Blender (powershell):
+4. Render the orbital in Blender (_Windows PowerShell_):
 
    ```powershell
    & $blender --background --factory-startup --python-exit-code 1 --python DFT/gen_structure.py -- --input DFT/example_C22H14.py --shader DFT/results/example_C22H14_alpha_homo.osl --output DFT/results/example_C22H14_orbital.blend --render
