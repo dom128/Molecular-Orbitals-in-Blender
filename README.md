@@ -1,3 +1,5 @@
+<img width="640" height="320" alt="orbitals_optimized" src="https://github.com/user-attachments/assets/38ef1e57-88ba-4658-bfc0-47de2579b48a" />
+
 # Molecular-Orbitals-in-Blender
 
 Render molecular orbitals directly in Blender's Cycle render engine using analytical Gaussian LCAO retrieved from DFT and translated into an OSL shader. The input is a PySCF job (example: pentacene anion [`DFT/example_C22H14.py`](DFT/example_C22H14.py)). Its RHF factory selects ROHF for this open-shell case and the supplied calculation is Hartree-Fock.
@@ -38,7 +40,7 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
 **Result:**
 The shader allows visualizing the amplitude or alternatively the orbital probabilty. The wave-function's phase is encoded in the shader color.
 
-![orbitals.gif](https://media2.giphy.com/media/WUM81fJQHZ0GHHqqQv/giphy.gif)
+<img width="640" height="320" alt="orbitals_optimized" src="https://github.com/user-attachments/assets/c110cc80-167a-476e-8d5e-620acd9331d6" />
 
 ## Notice
 Covalent radii are used in workflow.py, which are taken from [Cordero et al.](https://doi.org/10.1039/b801115j). The DFT input in example_C22H14.py is adapted from a GAMESS input file generated with Avogadro. The code in this project was mostly generated with ChatpGPT version 6.1 and is based on the previous project Atomic-Orbitals-in-Blender.
