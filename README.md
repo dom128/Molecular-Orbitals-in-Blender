@@ -38,7 +38,7 @@ The rendering of electron orbitals is based on the project [Atomic-Orbitals-in-B
 **Result:**
 The shader allows visualizing the amplitude or alternatively the orbital probabilty. The wave-function's phase is encoded in the shader color.
 
-![orbitals.gif](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTZhcnE4NnpjcmttZTNsMWs2NGwzZHB6ZTliYXA1MXhrOHNwMjI4bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WUM81fJQHZ0GHHqqQv/giphy.gif)
+![orbitals.gif](https://media2.giphy.com/media/WUM81fJQHZ0GHHqqQv/giphy.gif)
 
 ## Notice
 Covalent radii are used in workflow.py, which are taken from [Cordero et al.](https://doi.org/10.1039/b801115j). The DFT input in example_C22H14.py is adapted from a GAMESS input file generated with Avogadro. The code in this project was mostly generated with ChatpGPT version 6.1 and is based on the previous project Atomic-Orbitals-in-Blender.
