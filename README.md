@@ -1,5 +1,3 @@
-<img width="640" height="320" alt="orbitals_optimized" src="https://github.com/user-attachments/assets/38ef1e57-88ba-4658-bfc0-47de2579b48a" />
-
 # Molecular-Orbitals-in-Blender
 
 Render molecular orbitals directly in Blender's Cycle render engine using analytical Gaussian LCAO retrieved from DFT and translated into an OSL shader. The input is a PySCF job (example: pentacene anion [`DFT/example_C22H14.py`](DFT/example_C22H14.py)). Its RHF factory selects ROHF for this open-shell case and the supplied calculation is Hartree-Fock.
