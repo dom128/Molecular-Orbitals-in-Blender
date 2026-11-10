@@ -41,4 +41,4 @@ The shader allows visualizing the amplitude or alternatively the orbital probabi
 <img width="640" height="320" alt="orbitals_optimized" src="https://github.com/user-attachments/assets/c110cc80-167a-476e-8d5e-620acd9331d6" />
 
 ## Notice
-Covalent radii are used in workflow.py, which are taken from [Cordero et al.](https://doi.org/10.1039/b801115j). The DFT input in example_C22H14.py is adapted from a GAMESS input file generated with Avogadro. The code in this project was mostly generated with ChatpGPT version 6.1 and is based on the previous project Atomic-Orbitals-in-Blender.
+Covalent radii are used in workflow.py, which are taken from [Cordero et al.](https://doi.org/10.1039/b801115j). The DFT input in example_C22H14.py is adapted from a GAMESS input file generated with Avogadro. This project was written mostly with the help of ChatpGPT version 6.1 and is based on the previous project Atomic-Orbitals-in-Blender.
